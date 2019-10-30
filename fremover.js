@@ -44,12 +44,11 @@ outputStats = () => {
     console.log(`${filesModified} files modified.`); 
 }
 
-var filesModified = 0;
-var fileList = getFilesNamesThatMatchExpression(__dirname+"\\src", [match1, match2]);
 console.log(`fremover - swatting those pesky f's hidden in your tests. Your builds should feel liberated.`);
 console.log(`Written w/ <3 by Tony`);
+var filesModified = 0;
+var fileList = getFilesNamesThatMatchExpression(__dirname+"\\src", [match1, match2]);
 console.log(`${fileList.length} Files Located`);
-Promise.all(fileList.map(file => removeFitAndFdescribes(file))
-.then(() => {
+Promise.all(fileList.map(file => removeFitAndFdescribes(file))).then(() => {
     outputStats();
-}));
+});
